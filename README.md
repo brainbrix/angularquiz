@@ -21,6 +21,14 @@
 * `npm run serve:ssr`
 * in your browser [http://localhost:4000](http://localhost:4000) 
 
+### Clear
+* `npm clean.js`
+* Clean folders: ./dist and ./coverage 
 
-### Author
-* Author  : danny
+
+### Informations
+
+* https://codepen.io/Harry_Teo/pen/YLyEoK
+* https://tauri.app/v1/guides/getting-started/setup/html-css-js
+* https://simply-how.com/angular-web-app-with-ssr-and-prerendering-example
+* 
