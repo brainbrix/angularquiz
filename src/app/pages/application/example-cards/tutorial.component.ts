@@ -19,6 +19,15 @@ export class TutorialComponent implements OnInit {
 
   features: Array<Feature>;
 
+  questions = []; // Global Array of Objects (each Object representing a Question)
+  stats = {
+    questionsAsked: 2,
+    correct: 1,
+    correctStreak: 0,
+    currentTime: null,
+    averageResponseTime: 1.2
+  };
+
   constructor(
     private seoService: SeoService,
     @Inject(PLATFORM_ID) private platformId: object) {
