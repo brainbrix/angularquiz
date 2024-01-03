@@ -28,8 +28,8 @@
           <span id="rate-span" class="animated">{{stats.correct}}/{{stats.questionsAsked}}</span>
         </div>
         <div class="col-xs-3 col-lg-2">
-          <p>Correct Streak</p>
-          <span id="streak-span" class="animated">0</span>
+          <p>Time to Answer</p>
+          <span id="streak-span" class="animated">{{this.question.timeout+1}}</span>
         </div>
         <div class="col-xs-3 col-lg-2">
           <p><span>Avg. </span>Response Time (s)</p>
@@ -40,12 +40,14 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
-          <p id="quiz-question" class="animated"></p>
+          <p id="quiz-question" class="animated">
+            {{questions[stats.currentQuestion].question}}
+          </p>
           <div id="quiz-options">
-                       <button id="quiz-ans-0" class="btn quiz-ans-btn animated">Gale</button>
-                      <button id="quiz-ans-1" class="btn quiz-ans-btn animated">Perkins</button>
-                      <button id="quiz-ans-2" class="btn quiz-ans-btn animated">Day</button>
-                      <button id="quiz-ans-3" class="btn quiz-ans-btn animated">Parker</button>
+            <button id="quiz-ans-5"
+                    (click)="selectAnswer(i)"
+                    [class]="getCssClasses(i)" *ngFor="let item of
+                    question.answers; index as i">{{item}}</button>
           </div>
           <div id="quiz-play-again">
             <button id="quiz-play-again-btn" class="btn animated">Play Again</button>

@@ -64,12 +64,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
 #quiz-stats>div>span {
   font-size: 24px;
 }
-#quiz-stats>div>span.fadeIn {
-  animation-duration: 0.375s;
-}
-#quiz-stats>div>span.fadeOut {
-  animation-duration: 0.375s;
-}
+
 #quiz-question {
   font-size: 20px;
   font-weight: 600;
@@ -97,12 +92,18 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
   white-space: normal;
 }
 .quiz-ans-btn:hover { color: #fff; background-color: #476b6b; }
-.btn.quiz-ans-btn:active, .btn.quiz-ans-btn:focus { color: #fff; background-color: #334d4d; }
+
 .quiz-ans-btn.correct {
   background-color: #29a329;
+  animation: pulse 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
 }
 .quiz-ans-btn.incorrect {
-  background-color: #e60000;
+  background-color: red;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
 }
 #quiz-play-again {
   overflow-y: hidden;
@@ -126,9 +127,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
 }
 #quiz-play-again-btn:hover { color: #fff; background-color: #476b6b; }
 #quiz-play-again-btn:active, #quiz-play-again-btn:focus { color: #fff; background-color: #334d4d; }
-#quiz-play-again-btn.pulse {
-  animation-duration: 2s;
-}
+
 
 @media (max-width: 768px) {
   #quiz-stats { padding: 12px 0 8px 0; font-size: 10px; }
@@ -139,4 +138,57 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
   #quiz-options { margin: 14px 0 20px 0; }
   .quiz-ans-btn { font-size: 16px; min-height: 65px; }
   #quiz-play-again-btn {  font-size: 28px; width: 66%; }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.20); }
+  100% { transform: scale(1); }
+}
+
+.quiz-ans-btn.fadein {
+  animation: 2000ms fadeIn ease-in-out;
+}
+.quiz-ans-btn.fadeout {
+  animation: 2000ms fadeOut ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
